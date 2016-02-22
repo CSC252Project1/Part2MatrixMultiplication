@@ -3,7 +3,7 @@ matrixA: 	.word 1,2,3,4,5,6
 matrixB: 	.word 5,6,7,8,9,10
 sizeA: 		.word 3,2
 sizeB: 		.word 2,3
-space:		.asciiz  " "          # space to insert between numbers
+space:		.asciiz  " "    # space to insert between numbers
 result: 	.word 0:9
 		.text		#run following instructions	
 		la $s0,matrixA  #load address matrixA
@@ -44,4 +44,6 @@ print:		lw   $a0, 0($s3) #load number for syscall
       		addi $s3,$s3,4
       		addi $t1,$t1,-1
       		bgtz $t1,print
+      		li $v0,10
+      		syscall
 		
